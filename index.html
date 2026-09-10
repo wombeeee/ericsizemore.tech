@@ -23,13 +23,13 @@
   <meta name="twitter:image" content="https://ericsizemore.tech/assets/social-card.png">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#0e140e" media="(prefers-color-scheme: dark)">
-  <meta name="theme-color" content="#ece8d9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1C1E21" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F3ECD6" media="(prefers-color-scheme: light)">
 
-  <!-- Fonts: JetBrains Mono powers the console wordmark + mono labels; UI stays system sans -->
+  <!-- Fonts: JetBrains Mono (console wordmark + mono labels) · Space Grotesk (UI + body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <!-- Set theme before paint: stored override wins, else system preference -->
   <script>
@@ -78,13 +78,19 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <div class="hero-lockup fade-in">
-          <h1 class="hero-l1" aria-label="Eric Sizemore"><span class="chev" aria-hidden="true">&#10095;</span><span class="word">eric sizemore</span><span class="caret" aria-hidden="true"></span></h1>
-          <p class="hero-tag"><span class="k" aria-hidden="true">//</span> always testing ideas</p>
-        </div>
-        <div class="hero-cta fade-in">
-          <a href="#resources" class="btn btn-primary">Browse Resources</a>
-          <a href="#connect" class="btn btn-outline">Get in Touch</a>
+        <div class="hero-stage">
+          <div>
+            <div class="hero-lockup">
+              <h1 class="hero-l1" aria-label="Eric Sizemore"><span class="chev" aria-hidden="true">&#10095;</span><span class="word">eric sizemore</span><span class="caret" aria-hidden="true"></span></h1>
+              <p class="hero-tag"><span class="k" aria-hidden="true">//</span> always testing ideas</p>
+            </div>
+            <div class="hero-cta">
+              <a href="#resources" class="btn btn-console">browse resources</a>
+              <a href="#connect" class="btn btn-outline">Get in touch</a>
+            </div>
+          </div>
+          <img class="portrait portrait-dark" src="/assets/portrait-dark.jpg" alt="Eric Sizemore &mdash; illustrated sketch portrait" width="240" height="240">
+          <img class="portrait portrait-light" src="/assets/portrait-light.jpg" alt="" aria-hidden="true" width="240" height="240">
         </div>
       </div>
     </section>
@@ -92,8 +98,8 @@
     <!-- About -->
     <section class="section" id="about">
       <div class="container">
-        <h2 class="section-title fade-in">About</h2>
-        <div class="about-content fade-in">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
           <p>
             Always testing ideas &mdash; for thirteen years that's mostly meant K12 ed tech.
             Came up as an IT director (school networks, Chromebooks, the printer wars); now I
@@ -111,7 +117,7 @@
           <p>
             Beyond work, &ldquo;testing ideas&rdquo; is just being curious out loud. National
             parks with my wife Makayla and our dogs Cooper and Riley. WWII reading. Theology
-            arguments. Sooners 🏈, Thunder 🏀 &mdash; record optional.
+            arguments. Sooners football, Thunder basketball &mdash; record optional.
           </p>
         </div>
       </div>
@@ -120,15 +126,15 @@
     <!-- Resources -->
     <section class="section" id="resources">
       <div class="container">
-        <h2 class="section-title fade-in">Resources</h2>
-        <p class="section-subtitle fade-in">Practical material from the field &mdash; free to use, built to share.</p>
-        <ul class="lab-list fade-in">
+        <h2 class="section-title">Resources</h2>
+        <p class="section-subtitle">Practical material from the field &mdash; free to use, built to share.</p>
+        <ul class="lab-list">
 
           <li class="lab-item">
             <p class="lab-status lab-status-shipped">Shipped</p>
             <h3 class="interest-name">Gemini prompt library for K12 admins</h3>
             <p class="interest-desc">A curated, copy-ready set of prompts for the real work of running a district &mdash; policy drafts, family comms, audits, Vault, and rollout planning.</p>
-            <a class="interest-link" href="/resources/gemini-prompt-library/">&rarr; Open the library</a>
+            <a class="interest-link" href="/resources/gemini-prompt-library/">&#10095; Open the library</a>
           </li>
 
           <li class="lab-item">
@@ -141,7 +147,7 @@
             <p class="lab-status lab-status-shipped">Shipped</p>
             <h3 class="interest-name">This site</h3>
             <p class="interest-desc">A hand-built, no-framework home base on Cloudflare Workers. The Writing feed below is pulled live from my Substack by a tiny Worker &mdash; built in collaboration with Claude.</p>
-            <a class="interest-link" href="https://github.com/wombeeee/ericsizemore.social" target="_blank" rel="noopener">&rarr; Source</a>
+            <a class="interest-link" href="https://github.com/wombeeee/ericsizemore.tech" target="_blank" rel="noopener">&#10095; Source</a>
           </li>
 
         </ul>
@@ -151,14 +157,14 @@
     <!-- Writing -->
     <section class="section" id="writing">
       <div class="container">
-        <h2 class="section-title fade-in">Writing</h2>
-        <p class="section-subtitle fade-in">Essays and field notes on AI, ed tech, and the people in between. Posts land on Substack first.</p>
-        <ol class="post-list fade-in" aria-label="Latest posts">
+        <h2 class="section-title">Writing</h2>
+        <p class="section-subtitle">Essays and field notes on AI, ed tech, and the people in between. Posts land on Substack first.</p>
+        <ol class="post-list" aria-label="Latest posts">
           <li class="post">
             <p class="session-desc">Loading the latest posts&hellip;</p>
           </li>
         </ol>
-        <div class="writing-cta fade-in">
+        <div class="writing-cta">
           <a href="https://ericsizemore.substack.com/subscribe" class="btn btn-primary" target="_blank" rel="noopener">Subscribe on Substack</a>
           <a href="https://ericsizemore.substack.com/archive" class="btn btn-outline" target="_blank" rel="noopener">Browse the Archive</a>
         </div>
@@ -168,15 +174,15 @@
     <!-- Sessions & Workshops -->
     <section class="section" id="work">
       <div class="container">
-        <h2 class="section-title fade-in">Work</h2>
-        <nav class="year-filter fade-in" aria-label="Filter work by year">
+        <h2 class="section-title">Work</h2>
+        <nav class="year-filter" aria-label="Filter work by year">
           <button class="year-pill" type="button" data-year="2026" aria-pressed="true">2026</button>
           <button class="year-pill" type="button" data-year="2025" aria-pressed="false">2025</button>
           <button class="year-pill" type="button" data-year="2024" aria-pressed="false">2024</button>
           <button class="year-pill" type="button" data-year="2023" aria-pressed="false">2023</button>
           <button class="year-pill" type="button" data-year="2022" aria-pressed="false">2022</button>
         </nav>
-        <ol class="session-list fade-in">
+        <ol class="session-list">
 
           <!-- 2026 -->
           <li class="session" data-year="2026">
@@ -407,58 +413,58 @@
     <!-- Tech Stack -->
     <section class="section" id="stack">
       <div class="container">
-        <h2 class="section-title fade-in">Tech Stack</h2>
-        <p class="stack-tools fade-in">Chromebook &middot; ChromeOS &middot; Google Workspace &middot; Gemini &middot; Claude &middot; NotebookLM &middot; Slides &middot; Meet &middot; Classroom &middot; Forms</p>
+        <h2 class="section-title">Tech Stack</h2>
+        <p class="stack-tools">Chromebook &middot; ChromeOS &middot; Google Workspace &middot; Gemini &middot; Claude &middot; NotebookLM &middot; Slides &middot; Meet &middot; Classroom &middot; Forms</p>
       </div>
     </section>
 
     <!-- Things I'm Into -->
     <section class="section" id="following">
       <div class="container">
-        <h2 class="section-title fade-in">Things I'm Into</h2>
-        <p class="section-subtitle fade-in">Newsletters, podcasts, and other things worth your attention.</p>
-        <ul class="interest-list fade-in">
+        <h2 class="section-title">Things I'm Into</h2>
+        <p class="section-subtitle">Newsletters, podcasts, and other things worth your attention.</p>
+        <ul class="interest-list">
 
           <li class="interest">
             <h3 class="interest-name">The Verge</h3>
             <p class="interest-desc">Tech, science, and culture news with a point of view &mdash; and the parent publication for two of the newsletters below.</p>
-            <a class="interest-link" href="https://www.theverge.com" target="_blank" rel="noopener">&rarr; Read</a>
+            <a class="interest-link" href="https://www.theverge.com" target="_blank" rel="noopener">&#10095; Read</a>
           </li>
 
           <li class="interest">
             <h3 class="interest-name">Installer <span class="interest-by">by David Pierce</span></h3>
             <p class="interest-desc">A weekly newsletter telling you everything you need to download, watch, read, listen to, and explore that fits in The Verge's universe.</p>
-            <a class="interest-link" href="https://www.theverge.com/installer-newsletter" target="_blank" rel="noopener">&rarr; Read</a>
+            <a class="interest-link" href="https://www.theverge.com/installer-newsletter" target="_blank" rel="noopener">&#10095; Read</a>
           </li>
 
           <li class="interest">
             <h3 class="interest-name">Notepad <span class="interest-by">by Tom Warren</span></h3>
             <p class="interest-desc">A weekly window into Microsoft's era-defining bets on AI, gaming, and the future of computing.</p>
-            <a class="interest-link" href="https://www.theverge.com/notepad-microsoft-newsletter" target="_blank" rel="noopener">&rarr; Read</a>
+            <a class="interest-link" href="https://www.theverge.com/notepad-microsoft-newsletter" target="_blank" rel="noopener">&#10095; Read</a>
           </li>
 
           <li class="interest">
             <h3 class="interest-name">Prof G Markets <span class="interest-by">by Ed Elson &amp; Scott Galloway</span></h3>
             <p class="interest-desc">Breaks down the news moving capital markets — financial literacy and economic security, with personality.</p>
-            <a class="interest-link" href="https://www.profgmedia.com" target="_blank" rel="noopener">&rarr; Listen</a>
+            <a class="interest-link" href="https://www.profgmedia.com" target="_blank" rel="noopener">&#10095; Listen</a>
           </li>
 
           <li class="interest">
             <h3 class="interest-name">One Useful Thing <span class="interest-by">by Ethan Mollick</span></h3>
             <p class="interest-desc">A Wharton professor's running notes on what AI is actually useful for &mdash; practical, classroom-aware, light on hype.</p>
-            <a class="interest-link" href="https://www.oneusefulthing.org/" target="_blank" rel="noopener">&rarr; Read</a>
+            <a class="interest-link" href="https://www.oneusefulthing.org/" target="_blank" rel="noopener">&#10095; Read</a>
           </li>
 
           <li class="interest">
             <h3 class="interest-name">Dr. Philippa Hardman</h3>
             <p class="interest-desc">Substack from a learning design researcher &mdash; sharp takes on how AI is reshaping how we teach.</p>
-            <a class="interest-link" href="https://drphilippahardman.substack.com/" target="_blank" rel="noopener">&rarr; Read</a>
+            <a class="interest-link" href="https://drphilippahardman.substack.com/" target="_blank" rel="noopener">&#10095; Read</a>
           </li>
 
           <li class="interest">
             <h3 class="interest-name">Hard Fork <span class="interest-by">by Kevin Roose &amp; Casey Newton</span></h3>
             <p class="interest-desc">Each week, exploring and making sense of the rapidly changing world of tech.</p>
-            <a class="interest-link" href="https://www.nytimes.com/column/hard-fork" target="_blank" rel="noopener">&rarr; Listen</a>
+            <a class="interest-link" href="https://www.nytimes.com/column/hard-fork" target="_blank" rel="noopener">&#10095; Listen</a>
           </li>
 
         </ul>
@@ -468,12 +474,12 @@
     <!-- Connect / Social Hub -->
     <section class="section section-alt" id="connect">
       <div class="container">
-        <h2 class="section-title fade-in">Connect</h2>
-        <p class="section-subtitle fade-in">Find me around the web.</p>
+        <h2 class="section-title">Connect</h2>
+        <p class="section-subtitle">Find me around the web.</p>
 
         <div class="social-grid">
 
-          <a href="https://github.com/wombeeee" class="social-card fade-in" target="_blank" rel="noopener">
+          <a href="https://github.com/wombeeee" class="social-card" target="_blank" rel="noopener">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
             </svg>
@@ -481,7 +487,7 @@
             <span class="social-handle">@wombeeee</span>
           </a>
 
-          <a href="https://x.com/theericsizemore" class="social-card fade-in" target="_blank" rel="noopener">
+          <a href="https://x.com/theericsizemore" class="social-card" target="_blank" rel="noopener">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
@@ -489,7 +495,7 @@
             <span class="social-handle">@theericsizemore</span>
           </a>
 
-          <a href="https://instagram.com/eric_sizemore" class="social-card fade-in" target="_blank" rel="noopener">
+          <a href="https://instagram.com/eric_sizemore" class="social-card" target="_blank" rel="noopener">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zM12 16c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
@@ -497,7 +503,7 @@
             <span class="social-handle">@eric_sizemore</span>
           </a>
 
-          <a href="https://threads.net/@eric_sizemore" class="social-card fade-in" target="_blank" rel="noopener">
+          <a href="https://threads.net/@eric_sizemore" class="social-card" target="_blank" rel="noopener">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.32.143 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/>
             </svg>
@@ -505,7 +511,7 @@
             <span class="social-handle">@eric_sizemore</span>
           </a>
 
-          <a href="https://youtube.com/@ericsizemore" class="social-card fade-in" target="_blank" rel="noopener">
+          <a href="https://youtube.com/@ericsizemore" class="social-card" target="_blank" rel="noopener">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
@@ -513,7 +519,7 @@
             <span class="social-handle">@ericsizemore</span>
           </a>
 
-          <a href="https://ericsizemore.substack.com" class="social-card fade-in" target="_blank" rel="noopener">
+          <a href="https://ericsizemore.substack.com" class="social-card" target="_blank" rel="noopener">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24l9.6-5.55 9.6 5.55V10.812H1.46zm21.08-8.648H1.46V0h21.08v2.164z"/>
             </svg>
@@ -521,7 +527,7 @@
             <span class="social-handle">@ericsizemore</span>
           </a>
 
-          <a href="mailto:hello@ericsizemore.social" class="social-card fade-in">
+          <a href="mailto:hello@ericsizemore.social" class="social-card">
             <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="4" width="20" height="16" rx="2"/>
               <path d="M22 7l-10 7L2 7"/>
@@ -548,6 +554,10 @@
         <a href="#connect">Connect</a>
       </nav>
       <p class="footer-copy">&copy; 2026 Eric Sizemore. All rights reserved.</p>
+      <div class="footer-sig">
+        <span>surface <span class="accent">&#9679;</span> ink <span class="accent">&#9679;</span> accent #A3151C</span>
+        <span>console wordmark &middot; JetBrains Mono</span>
+      </div>
     </div>
   </footer>
 
