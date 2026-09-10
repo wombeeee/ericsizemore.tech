@@ -6,14 +6,14 @@ running archive of speaking work. Live at **[ericsizemore.tech](https://ericsize
 
 A hand-built, single-page site with **no build step** — just HTML, CSS, and a
 little vanilla JS — served from a small Cloudflare Worker. The console-wordmark
-identity (`❯ eric sizemore`) ships in both a dark "forest" and light "limestone"
-theme.
+identity (`❯ eric sizemore`) implements the **ES Design System** ("Sooners alt":
+crimson / anthracite / cream) in both a dark and a light theme.
 
 ## Stack
 
 - **Static front end** — `index.html` plus standalone resource pages under `resources/`, sharing one stylesheet (`css/site.css`). Progressive-enhancement JS in `js/main.js`. No framework, no bundler.
 - **Cloudflare Workers** — `worker.js` serves the static assets and adds one tiny API route (below).
-- **JetBrains Mono** — loaded from Google Fonts for the wordmark and mono labels; UI/body stay on the system sans stack.
+- **JetBrains Mono + Space Grotesk** — loaded from Google Fonts. Mono carries the wordmark, labels, and console idiom; Space Grotesk carries headings and body.
 
 ## Project structure
 
@@ -22,11 +22,12 @@ index.html         The home page
 css/site.css       Shared stylesheet — design tokens + all site styles
 resources/         Standalone field-kit pages (e.g. the Gemini prompt library),
                    each with its own shareable URL
-js/main.js         Theme toggle, mobile nav, scroll-to-top, fade-ins, the Writing feed
+js/main.js         Theme toggle, mobile nav, scroll-to-top, the Writing feed
 worker.js          Cloudflare Worker: serves assets + the /api/posts feed proxy
 wrangler.jsonc     Worker / deploy config
 data/events.csv    Source of truth for the Work archive (in-person events)
-assets/            favicon.svg (forest badge) + social-card.png (og:image)
+assets/            favicon.svg (anthracite badge) + social-card.png (og:image)
+                   + portrait-dark/light.jpg (illustrated sketch portrait)
 .assetsignore      Keeps worker.js, wrangler.jsonc, and data/ out of the public assets
 ```
 
@@ -62,19 +63,23 @@ npx wrangler deploy
 
 ## Design system
 
-The identity is a **console wordmark** — the name typed as a terminal command,
-with a blinking caret in the hero. Rivian-influenced: geometric restraint, one
-constant accent, forest + limestone earth tones, no separate icon glyph (the
-chevron *is* the icon).
+The site implements the **ES Design System** (palette "Sooners alt"). The
+identity is a **console wordmark** — the name typed as a terminal command with
+a blinking caret in the hero. No separate icon glyph: the chevron `❯` *is* the
+icon, and unicode glyphs (`❯ ❮ ✕ ✓ ● ◐`) stand in for an icon set. No emoji,
+no gradients, no shadows on flat surfaces, no entrance animations.
 
-- **One constant accent** — yellow-green `#E6EC2B`, the same in both themes.
-- **Dual theme** — dark "forest" (`#0e140e`) and light "limestone" (`#ece8d9`). The site defaults to the visitor's OS preference; a nav toggle overrides it and persists to `localStorage`. The theme is set pre-paint to avoid a flash.
-- **Legibility rule** — yellow-green is illegible on the light surface, so the chevron and `//` use a `--logo-mark` token (accent on dark, ink on light). The raw accent only appears as a *solid fill* where it reads on either surface: the caret, the toggle knob, the "Shipped" chip, button hovers.
-- **Icon marks are fixed** — the favicon and social card use a constant forest badge with the yellow-green chevron and do **not** theme-swap.
+- **Three constants** — crimson `#A3151C`, anthracite `#1C1E21`, cream `#F3ECD6`. The accent is crimson in both themes.
+- **Dual theme** — dark (anthracite, default) and light (cream). Defaults to the visitor's OS preference; the nav switch overrides it and persists to `localStorage`. Theme is set pre-paint to avoid a flash.
+- **Contrast rule** — `--logo-mark` (chevron, `//`, console glyphs) is crimson on dark and drops to deep crimson `#841617` on cream. Text on a crimson fill is always cream (`--on-accent`).
+- **Type** — JetBrains Mono (wordmark, labels, console idiom) + Space Grotesk (headings, body). Surfaces are flat: `--surface-2` fill, 1px hairline border, 14px radius.
+- **Imagery** — the illustrated sketch portrait is the only image treatment; never a photograph.
+- **Icon marks are fixed** — the favicon and social card are always the anthracite badge with the crimson chevron; they do **not** theme-swap.
 
 The social card (`assets/social-card.png`, 1200×630) is rendered from a small
-standalone HTML file in the forest palette — regenerate it if the wordmark or
-tagline changes.
+standalone HTML file in the fixed anthracite palette — regenerate it if the
+wordmark or tagline changes. The full system (tokens, components, guidelines,
+UI kits) lives in the ES Design System handoff outside this repo.
 
 ---
 
