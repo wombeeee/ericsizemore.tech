@@ -12,8 +12,9 @@
 
   // The theme actually on screen: 'light' or 'dark'.
   function effectiveTheme() {
-    // TODO(human): resolve the visible theme from the data-theme attribute and, when it is unset, osDark.
-    return root.getAttribute('data-theme') || 'light';
+    const set = root.getAttribute('data-theme');
+    if (set === 'dark' || set === 'light') return set;
+    return osDark && osDark.matches ? 'dark' : 'light';
   }
 
   function syncToggle() {
