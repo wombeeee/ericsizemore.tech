@@ -6,27 +6,30 @@ running archive of speaking work. Live at **[ericsizemore.tech](https://ericsize
 
 A hand-built, single-page site with **no build step** — just HTML, CSS, and a
 little vanilla JS — served from a small Cloudflare Worker. The console-wordmark
-identity (`❯ eric sizemore`) implements the **ES Design System** ("Sooners alt":
-crimson / anthracite / cream) in both a dark and a light theme.
+identity (`❯ eric sizemore`) implements the **Alpine** design system (seven bands, slate to sand) in a
+light theme (default) and a dark theme.
 
 ## Stack
 
 - **Static front end** — `index.html` plus standalone resource pages under `resources/`, sharing one stylesheet (`css/site.css`). Progressive-enhancement JS in `js/main.js`. No framework, no bundler.
 - **Cloudflare Workers** — `worker.js` serves the static assets and adds one tiny API route (below).
-- **JetBrains Mono + Space Grotesk** — loaded from Google Fonts. Mono carries the wordmark, labels, and console idiom; Space Grotesk carries headings and body.
+- **JetBrains Mono + Space Grotesk** — self-hosted variable fonts in `css/fonts/` (OFL). Mono carries the wordmark and labels; Space Grotesk carries headings and body.
 
 ## Project structure
 
 ```
 index.html         The home page
-css/site.css       Shared stylesheet — design tokens + all site styles
+css/alpine.css     Alpine tokens, type classes, @font-face (generated; do not hand-edit)
+css/alpine-components.css  Alpine button, eyebrow, card, well, bands
+css/site.css       Site layout on Alpine roles (no raw brand values)
+js/alpine-bands.js Draws the ridgeline motif (footer only)
 resources/         Standalone field-kit pages (e.g. the Gemini prompt library),
                    each with its own shareable URL
 js/main.js         Theme toggle, mobile nav, scroll-to-top, the Writing feed
 worker.js          Cloudflare Worker: serves assets + the /api/posts feed proxy
 wrangler.jsonc     Worker / deploy config
 data/events.csv    Source of truth for the Work archive (in-person events)
-assets/            favicon.svg (anthracite badge) + social-card.png (og:image)
+assets/            favicon.svg (Alpine chevron badge) + social-card.png (og:image)
                    + portrait-dark/light.jpg (illustrated sketch portrait)
 .assetsignore      Keeps worker.js, wrangler.jsonc, and data/ out of the public assets
 ```
@@ -63,23 +66,17 @@ npx wrangler deploy
 
 ## Design system
 
-The site implements the **ES Design System** (palette "Sooners alt"). The
-identity is a **console wordmark** — the name typed as a terminal command with
-a blinking caret in the hero. No separate icon glyph: the chevron `❯` *is* the
-icon, and unicode glyphs (`❯ ❮ ✕ ✓ ● ◐`) stand in for an icon set. No emoji,
-no gradients, no shadows on flat surfaces, no entrance animations.
+The site implements **Alpine**, the design system built from the seven bands of
+the Dbrand Alpine skin. `css/alpine.css` is generated from Alpine's
+`tokens.json` and is the only source of color, type, spacing, and radius;
+`css/site.css` only arranges those roles.
 
-- **Three constants** — crimson `#A3151C`, anthracite `#1C1E21`, cream `#F3ECD6`. The accent is crimson in both themes.
-- **Dual theme** — dark (anthracite, default) and light (cream). Defaults to the visitor's OS preference; the nav switch overrides it and persists to `localStorage`. Theme is set pre-paint to avoid a flash.
-- **Contrast rule** — `--logo-mark` (chevron, `//`, console glyphs) is crimson on dark and drops to deep crimson `#841617` on cream. Text on a crimson fill is always cream (`--on-accent`).
-- **Type** — JetBrains Mono (wordmark, labels, console idiom) + Space Grotesk (headings, body). Surfaces are flat: `--surface-2` fill, 1px hairline border, 14px radius.
-- **Imagery** — the illustrated sketch portrait is the only image treatment; never a photograph.
-- **Icon marks are fixed** — the favicon and social card are always the anthracite badge with the crimson chevron; they do **not** theme-swap.
-
-The social card (`assets/social-card.png`, 1200×630) is rendered from a small
-standalone HTML file in the fixed anthracite palette — regenerate it if the
-wordmark or tagline changes. The full system (tokens, components, guidelines,
-UI kits) lives in the ES Design System handoff outside this repo.
+- **Themes** — light is the default. `data-theme="dark"` forces dark; with no attribute the OS preference decides. The nav switch sets the attribute and persists it to `localStorage`.
+- **One accent** — links, primary buttons, active states, and the wordmark chevron use `--accent`; hover uses `--accent-press`; text on an accent fill is `--on-accent`.
+- **Bands, not gradients** — the seven `--alpine-*` colors are for the ridgeline motif only, never text, and nothing sits on them.
+- **Flat and bordered** — surfaces separate with a 1px `--line`; only menus and overlays cast `--shadow-overlay`.
+- **Wordmark** — lowercase `eric sizemore` in JetBrains Mono, chevron in accent.
+- **Fixed marks** — the favicon and social card use the dark theme's wordmark colors and do not theme-swap.
 
 ---
 
