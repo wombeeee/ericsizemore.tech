@@ -3,36 +3,46 @@
 (function () {
   'use strict';
 
-  // --- Theme Toggle (dark "forest" / light "limestone") ---
-  // Initial theme is set pre-paint by the inline <head> script; this wires the switch.
+  // --- Theme Toggle (Alpine: light default, dark via data-theme, OS when unset) ---
+  // The <head> script applies a saved choice before paint; with no saved choice the
+  // attribute stays unset and alpine.css follows prefers-color-scheme on its own.
   const root = document.documentElement;
   const themeTog = document.getElementById('themeTog');
+  const osDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+  // The theme actually on screen: 'light' or 'dark'.
+  function effectiveTheme() {
+    // TODO(human): resolve the visible theme from the data-theme attribute and, when it is unset, osDark.
+    return root.getAttribute('data-theme') || 'light';
+  }
 
   function syncToggle() {
     if (!themeTog) return;
-    themeTog.setAttribute('aria-checked', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+    themeTog.setAttribute('aria-checked', effectiveTheme() === 'dark' ? 'true' : 'false');
   }
 
   if (themeTog) {
     syncToggle();
     themeTog.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('es-theme', next); } catch (e) { /* private mode */ }
       syncToggle();
     });
   }
 
-  // Follow the OS theme until the user makes a manual choice.
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-      let saved = null;
-      try { saved = localStorage.getItem('es-theme'); } catch (err) { /* ignore */ }
-      if (saved !== 'dark' && saved !== 'light') {
-        root.setAttribute('data-theme', e.matches ? 'light' : 'dark');
-        syncToggle();
-      }
-    });
+  // While unset, CSS already follows the OS; only the switch position needs updating.
+  if (osDark) osDark.addEventListener('change', syncToggle);
+
+  // --- Footer ridgeline (Alpine bands motif) ---
+  const footerBands = document.getElementById('footerBands');
+  if (footerBands && window.Alpine) {
+    const drawBands = () => {
+      const width = Math.round(footerBands.clientWidth) || 480;
+      window.Alpine.bands(footerBands, { width, height: 64, radius: 'radius-lg' });
+    };
+    drawBands();
+    window.addEventListener('resize', drawBands, { passive: true });
   }
 
   // --- Mobile Nav Toggle ---
@@ -101,7 +111,7 @@
 
   if (postList) {
     const FALLBACK =
-      '<li class="post"><p class="session-desc">Can&rsquo;t reach the feed right now &mdash; ' +
+      '<li class="post"><p class="session-desc body-sm">Can&rsquo;t reach the feed right now &mdash; ' +
       '<a href="https://ericsizemore.substack.com/archive" target="_blank" rel="noopener">read everything on Substack</a>.</p></li>';
 
     const escapeHtml = (value) =>
@@ -117,9 +127,9 @@
       const date = formatDate(post.date);
       return (
         '<li class="post">' +
-        '<div class="session-meta">' + (date ? '<time>' + date + '</time>' : '') + '<span>Substack</span></div>' +
-        '<h3 class="post-title"><a href="' + escapeHtml(post.link) + '" target="_blank" rel="noopener">' + escapeHtml(post.title) + '</a></h3>' +
-        (post.snippet ? '<p class="session-desc">' + escapeHtml(post.snippet) + '</p>' : '') +
+        '<div class="session-meta meta">' + (date ? '<time>' + date + '</time>' : '') + '<span>Substack</span></div>' +
+        '<h3 class="post-title h3"><a href="' + escapeHtml(post.link) + '" target="_blank" rel="noopener">' + escapeHtml(post.title) + '</a></h3>' +
+        (post.snippet ? '<p class="session-desc body-sm">' + escapeHtml(post.snippet) + '</p>' : '') +
         '</li>'
       );
     };
