@@ -29,7 +29,7 @@ js/main.js         Theme toggle, mobile nav, scroll-to-top, the Writing feed
 worker.js          Cloudflare Worker: serves assets + the /api/posts feed proxy
 wrangler.jsonc     Worker / deploy config
 data/events.csv    Source of truth for the Work archive (in-person events)
-assets/            favicon.svg (anthracite badge) + social-card.png (og:image)
+assets/            favicon.svg (Alpine chevron badge) + social-card.png (og:image)
                    + portrait-dark/light.jpg (illustrated sketch portrait)
 .assetsignore      Keeps worker.js, wrangler.jsonc, and data/ out of the public assets
 ```
