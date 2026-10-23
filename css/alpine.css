@@ -1,0 +1,129 @@
+/* Alpine — generated from tokens.json. Edit tokens.json (or the design system) and regenerate; do not hand-edit values here. */
+
+/* 1. Color, light theme (the default) */
+:root, [data-theme="light"] {
+  --surface-100: #ded4c6;
+  --surface-200: #ede5d9;
+  --surface-300: #c2b6a6;
+  --ink-100: #1e2b30;
+  --ink-200: #304045;
+  --ink-300: #44565c;
+  --gray-mid: #555d59;
+  --gray-warm: #a99e8b;
+  --line: #c2b6a6;
+  --line-strong: #6f7873;
+  --accent: #465a61;
+  --accent-press: #32464d;
+  --accent-soft: #bfd5dd;
+  --on-accent: #ede5d9;
+  --accent-focus: #465a61;
+  --alpine-slate-deep: #465a61;
+  --alpine-slate: #5a6c70;
+  --alpine-storm: #6f7873;
+  --alpine-stone: #85827b;
+  --alpine-taupe: #948878;
+  --alpine-sand: #a99e8b;
+  --alpine-sand-light: #c2b6a6;
+  --shadow-overlay: 0 8px 24px rgba(30, 43, 48, 0.18);
+}
+
+/* 2. Color, dark theme: set data-theme="dark" on <html>, or leave it unset and let the OS decide below */
+[data-theme="dark"] {
+  --surface-100: #192427;
+  --surface-200: #243034;
+  --surface-300: #324044;
+  --ink-100: #e5ddd1;
+  --ink-200: #c2b6a6;
+  --ink-300: #a99e8b;
+  --gray-mid: #99a09c;
+  --gray-warm: #5a6c70;
+  --line: #3b4b50;
+  --line-strong: #85827b;
+  --accent: #a2bdc3;
+  --accent-press: #bfd6db;
+  --accent-soft: #293b41;
+  --on-accent: #192427;
+  --accent-focus: #a2bdc3;
+  --alpine-slate-deep: #465a61;
+  --alpine-slate: #5a6c70;
+  --alpine-storm: #6f7873;
+  --alpine-stone: #85827b;
+  --alpine-taupe: #948878;
+  --alpine-sand: #a99e8b;
+  --alpine-sand-light: #c2b6a6;
+  --shadow-overlay: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-100: #192427;
+    --surface-200: #243034;
+    --surface-300: #324044;
+    --ink-100: #e5ddd1;
+    --ink-200: #c2b6a6;
+    --ink-300: #a99e8b;
+    --gray-mid: #99a09c;
+    --gray-warm: #5a6c70;
+    --line: #3b4b50;
+    --line-strong: #85827b;
+    --accent: #a2bdc3;
+    --accent-press: #bfd6db;
+    --accent-soft: #293b41;
+    --on-accent: #192427;
+    --accent-focus: #a2bdc3;
+    --alpine-slate-deep: #465a61;
+    --alpine-slate: #5a6c70;
+    --alpine-storm: #6f7873;
+    --alpine-stone: #85827b;
+    --alpine-taupe: #948878;
+    --alpine-sand: #a99e8b;
+    --alpine-sand-light: #c2b6a6;
+    --shadow-overlay: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* 3. Spacing, radius, font stacks */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --font-sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* 4. Fonts (SIL Open Font License; license texts sit beside the files) */
+@font-face { font-family: "Space Grotesk"; src: url("./fonts/SpaceGrotesk-wght.woff2") format("woff2"); font-weight: 300 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("./fonts/JetBrainsMono-wght.woff2") format("woff2"); font-weight: 100 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("./fonts/JetBrainsMono-Italic-wght.woff2") format("woff2"); font-weight: 100 800; font-style: italic; font-display: swap; }
+
+/* 5. Type styles, one class per style in tokens.json. Eyebrows add text-transform: uppercase themselves. */
+.display { font-family: var(--font-sans); font-size: 64px; line-height: 64px; font-weight: 700; letter-spacing: -0.02em; }
+.h1 { font-family: var(--font-sans); font-size: 40px; line-height: 44px; font-weight: 700; letter-spacing: -0.015em; }
+.h2 { font-family: var(--font-sans); font-size: 28px; line-height: 34px; font-weight: 600; letter-spacing: -0.01em; }
+.h3 { font-family: var(--font-sans); font-size: 20px; line-height: 26px; font-weight: 600; letter-spacing: 0; }
+.body-lg { font-family: var(--font-sans); font-size: 18px; line-height: 28px; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 400; }
+.body-sm { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 400; }
+.caption { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.01em; }
+.wordmark { font-family: var(--font-mono); font-size: 20px; line-height: 24px; font-weight: 500; letter-spacing: -0.01em; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; }
+.numeral { font-family: var(--font-mono); font-size: 36px; line-height: 40px; font-weight: 500; letter-spacing: -0.02em; }
+.code { font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 400; }
+.meta { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0.02em; }
+
+/* 6. Base: the page is surface-100, text is ink-100, body type is .body */
+html { background: var(--surface-100); color: var(--ink-100); color-scheme: light dark; }
+body { margin: 0; font-family: var(--font-sans); font-size: 16px; line-height: 24px; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent-press); }
+hr { border: 0; border-top: 1px solid var(--line); margin: var(--space-6) 0; }
+::selection { background: var(--accent-soft); color: var(--ink-100); }
+:focus-visible { outline: 2px solid var(--accent-focus); outline-offset: 2px; }

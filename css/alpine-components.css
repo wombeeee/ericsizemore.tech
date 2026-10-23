@@ -1,0 +1,42 @@
+/* Alpine components. Plain CSS on the tokens in alpine.css; no framework. Markup conventions match the design system's previews. */
+
+/* Button: .btn + one of .btn-primary / .btn-secondary / .btn-quiet. Primary at most once per view. */
+.btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-5); border-radius: var(--radius-md); border: 1px solid transparent;
+       font: 500 16px/24px var(--font-sans); cursor: pointer; text-decoration: none; transition: background-color 150ms ease-out, color 150ms ease-out, border-color 150ms ease-out; }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover, .btn-primary:active { background: var(--accent-press); color: var(--on-accent); }
+.btn-secondary { background: var(--surface-200); color: var(--ink-100); border-color: var(--line-strong); }
+.btn-secondary:hover { background: var(--surface-300); color: var(--ink-100); }
+.btn-quiet { background: transparent; color: var(--accent); padding-left: var(--space-2); padding-right: var(--space-2); }
+.btn-quiet:hover { color: var(--accent-press); text-decoration: underline; text-underline-offset: 3px; }
+.btn[disabled], .btn[aria-disabled="true"] { background: var(--surface-200); color: var(--gray-mid); border-color: var(--line); cursor: not-allowed; }
+
+/* Eyebrow: the mono label above a headline. Uppercase here, never typed in caps. */
+.eyebrow { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-300); margin: 0; display: inline-flex; align-items: center; gap: var(--space-2); }
+.eyebrow.accent { color: var(--accent); }
+.eyebrow.ruled { padding-bottom: var(--space-1); border-bottom: 1px solid var(--gray-warm); }
+.eyebrow .n { color: var(--ink-100); }
+
+/* Card: a raised container for one thing. No shadow, no colored left border. */
+.card { background: var(--surface-200); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.card > .body { padding: var(--space-5); }
+.card .frame { display: block; width: 100%; }
+.card .eyebrow { margin-bottom: var(--space-2); }
+.card .h3 { margin: 0 0 var(--space-2); color: var(--ink-100); }
+.card .body-sm { margin: 0; color: var(--ink-200); }
+.card .meta { color: var(--ink-300); margin: var(--space-4) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--line); display: flex; justify-content: space-between; }
+.card.selected { background: var(--accent-soft); border-color: var(--accent); }
+.card.selected .eyebrow { color: var(--accent); }
+a.card:hover { background: var(--surface-300); }
+@media (max-width: 600px) { .card > .body { padding: var(--space-4); } }
+
+/* Wells: code blocks and sunken areas. Only ink-100 / ink-200 text inside at body size. */
+.well, pre.code { background: var(--surface-300); color: var(--ink-100); border-radius: var(--radius-sm); padding: var(--space-4); overflow: auto; }
+code { font-family: var(--font-mono); font-size: 0.9em; }
+
+/* Bands: a frame for the ridgeline motif (Alpine.bands(el, {...}) in alpine-bands.js fills it). */
+.bands { display: block; line-height: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.bands.bleed { border: 0; border-radius: 0; }
+
+/* Overlays are the only things that cast a shadow. */
+.overlay { background: var(--surface-200); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-overlay); }
