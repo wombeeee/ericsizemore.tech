@@ -1,7 +1,7 @@
 # ericsizemore.tech
 
-Personal site for Eric Sizemore — K12 ed tech and AI. Writing, resources, and a
-running archive of speaking work. Live at **[ericsizemore.tech](https://ericsizemore.tech)**
+Personal site for Eric Sizemore: who I am, what I write, selected work, and what
+has my attention now. Live at **[ericsizemore.tech](https://ericsizemore.tech)**
 (the former ericsizemore.social, which now redirects here).
 
 A hand-built, single-page site with **no build step** — just HTML, CSS, and a
@@ -28,11 +28,17 @@ resources/         Standalone field-kit pages (e.g. the Gemini prompt library),
 js/main.js         Theme toggle, mobile nav, scroll-to-top, the Writing feed
 worker.js          Cloudflare Worker: serves assets + the /api/posts feed proxy
 wrangler.jsonc     Worker / deploy config
-data/events.csv    Source of truth for the Work archive (in-person events)
+data/events.csv    Full event log; the Work section shows hand-picked highlights from it
 assets/            favicon.svg (Alpine chevron badge) + social-card.png (og:image)
                    + portrait-dark/light.jpg (illustrated sketch portrait)
 .assetsignore      Keeps worker.js, wrangler.jsonc, and data/ out of the public assets
 ```
+
+## Sections
+
+About, Writing, Work, Now, Connect. Only **Writing** (automatic, from Substack) and
+**Now** (edited by hand, with its "Updated" month) are meant to change. Everything
+else is evergreen.
 
 ## The Writing feed
 

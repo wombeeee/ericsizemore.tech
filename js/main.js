@@ -1,4 +1,4 @@
-// ericsizemore.social — Main JS
+// ericsizemore.tech — Main JS
 
 (function () {
   'use strict';
@@ -81,39 +81,16 @@
     });
   }
 
-  // --- Year Filter (Work section) ---
-  const yearFilter = document.querySelector('.year-filter');
-
-  if (yearFilter) {
-    const pills = yearFilter.querySelectorAll('.year-pill');
-    const items = document.querySelectorAll('.session-list .session');
-
-    function applyYearFilter(year) {
-      pills.forEach((p) => {
-        p.setAttribute('aria-pressed', p.dataset.year === year ? 'true' : 'false');
-      });
-      items.forEach((item) => {
-        item.hidden = item.dataset.year !== year;
-      });
-    }
-
-    yearFilter.addEventListener('click', (e) => {
-      const pill = e.target.closest('.year-pill');
-      if (!pill) return;
-      applyYearFilter(pill.dataset.year);
-    });
-
-    const initialPill = yearFilter.querySelector('.year-pill[aria-pressed="true"]');
-    if (initialPill) applyYearFilter(initialPill.dataset.year);
-  }
-
   // --- Writing: latest posts from Substack (via the /api/posts Worker) ---
   const postList = document.querySelector('.post-list');
 
   if (postList) {
     const FALLBACK =
-      '<li class="post"><p class="session-desc body-sm">Can&rsquo;t reach the feed right now &mdash; ' +
+      '<li class="post"><p class="session-desc body-sm">Can&rsquo;t reach the feed right now. ' +
       '<a href="https://ericsizemore.substack.com/archive" target="_blank" rel="noopener">read everything on Substack</a>.</p></li>';
+
+    const EMPTY =
+      '<li class="post"><p class="session-desc body-sm">Nothing published yet.</p></li>';
 
     const escapeHtml = (value) =>
       String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -141,7 +118,7 @@
         const posts = (data.posts || []).filter(
           (p) => p && p.title && typeof p.link === 'string' && p.link.indexOf('https://') === 0
         );
-        postList.innerHTML = posts.length ? posts.map(renderPost).join('') : FALLBACK;
+        postList.innerHTML = posts.length ? posts.map(renderPost).join('') : EMPTY;
       })
       .catch(() => {
         postList.innerHTML = FALLBACK;
