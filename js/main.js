@@ -87,7 +87,7 @@
   if (postList) {
     const FALLBACK =
       '<li class="post"><p class="session-desc body-sm">Can&rsquo;t reach the feed right now. ' +
-      '<a href="https://ericsizemore.substack.com/archive" target="_blank" rel="noopener">read everything on Substack</a>.</p></li>';
+      '<a href="https://ericsizemore.substack.com/archive" target="_blank" rel="noopener">read Working Theory on Substack</a>.</p></li>';
 
     const EMPTY =
       '<li class="post"><p class="session-desc body-sm">Nothing published yet.</p></li>';
@@ -105,7 +105,7 @@
       const date = formatDate(post.date);
       return (
         '<li class="post">' +
-        '<div class="session-meta meta">' + (date ? '<time>' + date + '</time>' : '') + '<span>Substack</span></div>' +
+        '<div class="session-meta meta">' + (date ? '<time>' + date + '</time>' : '') + '<span>Working Theory</span></div>' +
         '<h3 class="post-title h3"><a href="' + escapeHtml(post.link) + '" target="_blank" rel="noopener">' + escapeHtml(post.title) + '</a></h3>' +
         (post.snippet ? '<p class="session-desc body-sm">' + escapeHtml(post.snippet) + '</p>' : '') +
         '</li>'
